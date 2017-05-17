@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+    <head>
+        <title>Setup</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- polyfills core-js unterstützt ältere Browser die noch nicht ECMA2015 (ES6) unterstützen -->
+        
+        <script src="node_modules/core-js/client/shim.min.js"></script> <!-- polyfills for older browsers-->
+    
+        <!-- vendor -->
+         <script src="node_modules/zone.js/dist/zone.js"></script>  <!-- ausführungskontext kann damit bestimmt werden-->
+         <script src="node_modules/reflect-metadata/Reflect.js"></script> <!-- metadaten können damit konform zugewiesen werden-->
+         <script src="node_modules/systemjs/dist/system.src.js"></script> <!-- module automatisch nachladen -->
+
+        <script>
+            <!-- Hier sprechen wir systems an   -->
+           System.import('system.config.js').then( function(){
+               
+              System.import('app');
+           }).catch(function(err){
+               
+               console.log(err);
+           });
+
+
+        </script>
+    
+         
+    </head>
+    <body>
+    <my-app> </my-app>
+        
+        
+    </body>
+</html>
